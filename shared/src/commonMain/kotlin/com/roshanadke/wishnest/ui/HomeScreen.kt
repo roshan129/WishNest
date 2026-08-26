@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -59,6 +60,17 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
+        Button(
+            onClick = {  },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp)
+        ) {
+            Text(
+                text = "Click Me"
+            )
+        }
+
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -97,6 +109,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 }
             }
         }
+
+
     }
 }
 
