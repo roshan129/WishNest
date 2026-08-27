@@ -33,10 +33,16 @@ fun WishListApp(
         modifier = modifier,
         entryProvider = entryProvider {
             entry<HomeScreen> {
-                HomeScreen()
+                HomeScreen(
+                    onAddButtonClicked = {
+                        backStack.add(AddWishScreen)
+                    }
+                )
             }
             entry<AddWishScreen> {
-                AddWishScreen()
+                AddWishScreen(
+                    onBackPressed = { backStack.removeLastOrNull() }
+                )
             }
         }
     )

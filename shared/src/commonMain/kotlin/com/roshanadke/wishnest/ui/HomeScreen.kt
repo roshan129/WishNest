@@ -27,7 +27,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    onAddButtonClicked: () -> Unit = {}
+) {
     val cards = listOf(
         HomeCardItem("Focus", "Deep work", Color(0xFFE7F0FF)),
         HomeCardItem("Health", "Daily move", Color(0xFFE3F8E8)),
@@ -61,7 +64,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Button(
-            onClick = {  },
+            onClick = onAddButtonClicked,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp)
