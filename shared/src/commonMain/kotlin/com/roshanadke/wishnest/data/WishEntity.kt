@@ -6,6 +6,10 @@ import androidx.room3.PrimaryKey
 @Entity
 data class WishEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    val title: String,
-    val content: String
+    val wishName: String,
+    val price: String,
+    val productLink: String,
+    val wishListType: String,
+    val priority: String,
+    val notes: String
 )
