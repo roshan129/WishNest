@@ -17,6 +17,8 @@ material3 = "1.11.0-alpha07"
 room3 = "3.0.1"
 sqlite = "2.7.0"
 ksp = "2.3.9"
+multiplatform-nav3-ui = "1.1.1"
+compose-multiplatform-lifecycle = "2.10.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -40,6 +42,8 @@ kotlinx-coroutinesSwing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-s
 androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 androidx-room3-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room3" }
 androidx-room3-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room3" }
+jetbrains-navigation3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "multiplatform-nav3-ui" }
+jetbrains-lifecycle-viewmodelNavigation3 = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "compose-multiplatform-lifecycle" }
 
 
 [plugins]
@@ -51,4 +55,5 @@ kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 androidx-room3 = { id = "androidx.room3", version.ref = "room3" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 

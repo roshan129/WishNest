@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.androidx.room3)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -59,6 +60,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.androidx.room3.runtime)
             implementation(libs.androidx.sqlite.bundled)
+            implementation(libs.jetbrains.navigation3.ui)
+            implementation(libs.jetbrains.lifecycle.viewmodelNavigation3)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
