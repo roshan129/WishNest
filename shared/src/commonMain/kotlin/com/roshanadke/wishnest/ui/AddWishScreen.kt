@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -103,6 +104,7 @@ fun AddWishScreen(
             modifier = modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .imePadding()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -226,7 +228,20 @@ fun AddWishScreen(
 
                 // Bottom spacer so Save button doesn't overlap content
                 Spacer(modifier = Modifier.height(8.dp))
+
+
             }
         }
     }
+}
+
+@Composable
+fun TempScreen(modifier: Modifier = Modifier,
+               text: String = "This is a temporary screen for testing purposes."
+) {
+     Text(
+        text = text,
+        modifier = modifier
+            .fillMaxSize()
+            .padding(20.dp))
 }
