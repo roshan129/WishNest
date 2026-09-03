@@ -29,6 +29,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -58,6 +59,10 @@ fun AddWishScreen(
     // URL-first mode state
     var isManualMode by remember { mutableStateOf(false) }
     var productUrl by remember { mutableStateOf("") }
+
+    LaunchedEffect(Unit) {
+        val
+    }
 
     // Form fields
     var wishName by remember { mutableStateOf("") }
