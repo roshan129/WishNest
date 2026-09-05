@@ -5,6 +5,7 @@ import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.roshanadke.wishnest.data.WishDatabase
 import com.roshanadke.wishnest.data.repo.WishRepositoryImpl
 import com.roshanadke.wishnest.domain.WishRepository
+import com.roshanadke.wishnest.viewmodel.WishViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import org.koin.core.module.Module
@@ -25,6 +26,10 @@ val sharedModule = module {
 
     single<WishRepository> {
         WishRepositoryImpl(get())
+    }
+
+    factory {
+        WishViewModel(get())
     }
 }
 
