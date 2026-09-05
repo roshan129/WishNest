@@ -63,7 +63,10 @@ kotlin {
             implementation(libs.androidx.sqlite.bundled)
             implementation(libs.jetbrains.navigation3.ui)
             implementation(libs.jetbrains.lifecycle.viewmodelNavigation3)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
             api(libs.koin.core)
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

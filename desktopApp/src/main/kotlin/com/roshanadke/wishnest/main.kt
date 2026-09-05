@@ -6,7 +6,7 @@ import com.roshanadke.wishnest.di.initKoin
 
 fun main() = application {
 
-
+    initKoin()
 
     Window(
         onCloseRequest = ::exitApplication,

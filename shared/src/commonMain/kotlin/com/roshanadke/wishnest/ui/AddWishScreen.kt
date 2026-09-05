@@ -29,7 +29,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,6 +36,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import com.roshanadke.wishnest.domain.Wish
+import com.roshanadke.wishnest.viewmodel.WishViewModel
+import org.koin.mp.KoinPlatform.getKoin
 
 enum class WishPriority { Low, Medium, High }
 
@@ -56,6 +58,8 @@ fun AddWishScreen(
     modifier: Modifier = Modifier,
     onBackPressed: () -> Unit = {}
 ) {
+    val viewModel: WishViewModel = remember { getKoin().get() }
+
     // URL-first mode state
     var isManualMode by remember { mutableStateOf(false) }
     var productUrl by remember { mutableStateOf("") }
@@ -92,7 +96,22 @@ fun AddWishScreen(
                         .padding(horizontal = 20.dp, vertical = 16.dp)
                 ) {
                     Button(
-                        onClick = { /* TODO: save wish */ },
+                        onClick = {
+                            if (wishName.isBlank()) return@Button
+
+                            viewModel.addWish(
+                                Wish(
+                                    wishName = wishName.trim(),
+                                    price = price.ifBlank { "" },
+                                    productLink = productLink.ifBlank { productUrl },
+                                    wishListType = selectedWishList,
+                                    priority = priority.name,
+                                    notes = notes
+                                )
+                            )
+                            onBackPressed()
+                        },
+                        enabled = wishName.isNotBlank(),
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text("Save")

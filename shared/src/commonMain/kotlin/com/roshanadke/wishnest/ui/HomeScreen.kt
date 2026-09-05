@@ -21,15 +21,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.roshanadke.wishnest.domain.Wish
 import com.roshanadke.wishnest.viewmodel.WishViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import org.koin.mp.KoinPlatform.getKoin
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    onAddButtonClicked: () -> Unit = {}
+    onAddButtonClicked: () -> Unit = {},
+    wishViewModel: WishViewModel = koinViewModel()
 ) {
-    val viewModel: WishViewModel = remember { getKoin().get() }
-    val wishes by viewModel.allWishes.collectAsState(initial = emptyList())
+    val wishes by wishViewModel.allWishes.collectAsState(initial = emptyList())
 
     Column(
         modifier = modifier
