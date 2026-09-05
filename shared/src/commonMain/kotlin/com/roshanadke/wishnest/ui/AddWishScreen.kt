@@ -60,10 +60,6 @@ fun AddWishScreen(
     var isManualMode by remember { mutableStateOf(false) }
     var productUrl by remember { mutableStateOf("") }
 
-    LaunchedEffect(Unit) {
-        val
-    }
-
     // Form fields
     var wishName by remember { mutableStateOf("") }
     var price by remember { mutableStateOf("") }

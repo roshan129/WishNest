@@ -20,30 +20,30 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm()
-    
+
     android {
-       namespace = "com.roshanadke.wishnest.shared"
-       compileSdk = libs.versions.android.compileSdk.get().toInt()
-       minSdk = libs.versions.android.minSdk.get().toInt()
-    
-       compilerOptions {
-           jvmTarget = JvmTarget.JVM_11
-       }
-       androidResources {
-           enable = true
-       }
-       withHostTest {
-           isIncludeAndroidResources = true
-       }
-       withDeviceTestBuilder {
-           sourceSetTreeName = "test"
-       }.configure {
-           instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-       }
+        namespace = "com.roshanadke.wishnest.shared"
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_11
+        }
+        androidResources {
+            enable = true
+        }
+        withHostTest {
+            isIncludeAndroidResources = true
+        }
+        withDeviceTestBuilder {
+            sourceSetTreeName = "test"
+        }.configure {
+            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
@@ -63,17 +63,27 @@ kotlin {
             implementation(libs.androidx.sqlite.bundled)
             implementation(libs.jetbrains.navigation3.ui)
             implementation(libs.jetbrains.lifecycle.viewmodelNavigation3)
-            implementation(project.dependencies.platform(libs.koin.bom))
-            implementation(libs.koin.core)
+            api(libs.koin.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        jvmMain {
+            dependencies {
+                implementation(libs.koin.core)
+            }
         }
     }
 }
 
 room3 {
     schemaDirectory("$projectDir/schemas")
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
 
 dependencies {
